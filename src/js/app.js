@@ -1,8 +1,11 @@
 import { Car } from './classes/car'
 import { Drone } from './classes/drone'
+import { FleetDataService } from './services/fleet-data-service'
+import { fleet } from './fleet-data'
 
-let c = new Car()
-let d = new Drone()
+let dataService = new FleetDataService()
+dataService.loadData(fleet)
 
-console.log(c)
-console.log(d)
+for (let e of dataService.errors) {
+  console.log(e)
+}
